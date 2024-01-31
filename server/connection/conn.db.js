@@ -1,16 +1,16 @@
 const mongoose = require("mongoose");
 const url = "mongodb://0.0.0.0:27017/login";
 
-let db; // Declare db variable to hold the database object
+let db; 
 
-// Function to establish MongoDB connection
+
 function connectToMongo(callback) {
   mongoose
     .connect(url)
     .then(() => {
-      db = mongoose.connection.db; // Assign db the database object
+      db = mongoose.connection.db; 
       console.log("Connected to MongoDB");
-      callback(null, db); // Notify callback function with db object
+      callback(null, db);
     })
     .catch((error) => {
       console.error("Error connecting to MongoDB:", error);
@@ -18,5 +18,4 @@ function connectToMongo(callback) {
     });
 }
 
-// Export function to connect to MongoDB
 module.exports = connectToMongo;
